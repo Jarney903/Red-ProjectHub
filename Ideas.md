@@ -15,10 +15,9 @@
     - https://datacatalog.worldbank.org/search/dataset/0037526/Global-Jobs-Indicators-Database
 
 ### Idea 3:
-- Title:
-- Question:
-- Hypothesis:
-- Data Source:
+- Title: 
+- Question: 
+- Data Source: 
 
 
 
@@ -71,6 +70,7 @@
 - https://data.un.org/
 - https://www.eia.gov/opendata/
 - https://microdata.worldbank.org/index.php/catalog/424
-
+- https://www.kaggle.com/datasets/devansodariya/student-performance-data
+- https://archive.ics.uci.edu/ml/datasets/Diabetes+130-US+hospitals+for+years+1999-2008
 
 
