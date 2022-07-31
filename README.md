@@ -37,6 +37,7 @@ Recommendations: to be determined
 
 
 # Segment 1
-- ETL branch contains current work related to the cleaning and processing of the raw data
+- ETL branch contains past work related to the cleaning and processing of the raw data
+- etl_clean branch contains a better organized version of the ETL branch work (Please look here for finalized ETL work)
 - Prelim_testing branch contains preliminary testing of different models and general playing around with the data to better understand it 
 - Model_testing branch contains several tests of various models, for us to familiarize further with the different available models, which will lead to us choosing the most appropriate ones to conduct our analysis
