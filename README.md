@@ -25,7 +25,7 @@ The team meets primarity on Tuesday's and Thursday's at 7:00 PM CST. The team al
 ## Git Hub Overview
 
 - Main Branch: Master README.md
-- ETL Branch: Master ETL Code for cleaning data, removing outliers, and finding feature importance
+- etl_clean Branch: Master ETL Code for cleaning data, removing outliers, and finding feature importance
 - Model Testing Branch: Contains testing models for performing machine learning on the Reactor, Tower A, and Tower B data in reference to the Lab results data. 
 
 ## Provisional Machine Learning Model
