@@ -37,7 +37,7 @@ Twelve (12) provisional machine learning models have been created and published 
 -- Note: A copy of the Model Testing Branch's "Model" folder has been uploaded to the Main Branch.
 
 ## Provisional Database
-A provisional database that stands in for the final database, mimics the expected final database structure or schema, and is connected to the provisional models has been constructed using the 5 raw datasets as a series of CSV files. A provisional SQL Diagram has be created to help visualize the final SQL Database that will be used for this project in Figure #2 below:
+A provisional database that stands in for the final database, mimics the expected final database structure or schema, and is connected to the provisional models has been constructed using 4 of 5 raw datasets (Reactor Data isn't ready yet) as a series of CSV files. A provisional SQL Diagram has be created to help visualize the final SQL Database that will be used for this project in Figure #2 below:
 
 ### Figure 2: Provisional SQL Diagram
 ![2](https://github.com/Jarney903/Red-ProjectHub/blob/main/Graphics/SQL_mockup.png)
