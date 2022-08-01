@@ -6,14 +6,20 @@ Team Members
 
 ## Content
 
-Test
-
 Utilize plant data from multiple unit assets to develop machine learning methods to predict "live" volume percentage of N-Butane build up in Tower A recycle line to Reactor. 
 
 Excess N-Butane accumulates in the Tower A recycle stream and essentially dilutes the isobutane content resulting in unfavorable reaction conditions, effects reaction quality, and I:O ratio (Isobutane : Olefin). Lab sample frequency periods being too far apart along with subtle N-Butane accumulation manifests in a way that is difficult for humans to recognize
 quickly or effectively. However, N-Butane must be removed in such a way that there is a balance on the reaction, separation section, and in the product stream. The more N-Butane that leaves the unit, the more isobutane also leaves the unit, therefore a balance must take place in the unit between the two species to keep N-Butane manageable while limiting Isobutane loses.
 
 The source data comes from individual asset data files pulled from the site process information historian in the form of CSV files. This data was pulled over a 9.5 year span and contains over 1.2 million individual data points before the ETL process was began. A block flow diagram of the process is included in Figure #1 below, along with individual sensor datapoints in their respective locations. 
+
+Resources:
+CSV files
+
+Software:
+* SQL
+* Jupyter Notebook
+* Quick Data Base Diagrams
 
 ### Figure 1: Process Block Flow
 ![1](https://github.com/Jarney903/Red-ProjectHub/blob/main/Graphics/Block_Flow.jpg)
