@@ -49,3 +49,5 @@ A provisional database that stands in for the final database, mimics the expecte
 
 ### Figure 2: Provisional SQL Diagram
 ![2](https://github.com/Jarney903/Red-ProjectHub/blob/main/Graphics/SQL_mockup.png)
+
+![image](https://user-images.githubusercontent.com/101227930/182073965-71b2e142-d287-4f3c-a100-f6a6159c67f9.png)
