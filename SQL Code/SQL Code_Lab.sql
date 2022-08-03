@@ -3,7 +3,8 @@
 CREATE TABLE labdata (
 	"Index" INT,
      "Date" VARCHAR NOT NULL,
-     "TA.OVH.RECYCLE.NC4.VOLPCT" VARCHAR
+     "TA.OVH.RECYCLE.NC4.VOLPCT" VARCHAR,
+	Primary Key ("Date")
 );
 
 -- Creating tables for RX Data
@@ -24,7 +25,8 @@ CREATE TABLE rxdata (
 	 "RX.SOUTH.OUT.F" VARCHAR,
 	 "RX.SOUTH.WATERRETURN.F" VARCHAR,
 	 "RX.SOUTH.WATERRETURN.PH" VARCHAR,
-	 "RX.OUT.DELTA.F" VARCHAR
+	 "RX.OUT.DELTA.F" VARCHAR,
+	Primary Key ("Date")
 );
 
 
@@ -46,7 +48,8 @@ CREATE TABLE tadata (
 	"TA.BTM.PSIG" VARCHAR,	
 	"TA.BTM.LEVEL.PCT" VARCHAR,	
 	"TA.BTM.REBOIL.OUT.F" VARCHAR,	
-	"TA.TOP.REBOIL.OUT.F" VARCHAR
+	"TA.TOP.REBOIL.OUT.F" VARCHAR,
+	Primary Key ("Date")
 );
 
 
@@ -66,7 +69,8 @@ CREATE TABLE tbdata (
 	"TB.BTM.LVL.PCT" VARCHAR,	
 	"TB.DP.PSIG" VARCHAR,	
 	"TB.BTM.F" VARCHAR,	
-	"TB.REBOIL.OUT.F" VARCHAR
+	"TB.REBOIL.OUT.F" VARCHAR,
+	Primary Key ("Date")
 );
 
 
@@ -83,23 +87,81 @@ CREATE TABLE tcdata (
 	"TC.DP.PSIG" VARCHAR,
 	"TC.BTM.PSIG" VARCHAR,	
 	"TC.REBOIL.OUT.F" VARCHAR,	
-	"TC.REBOIL.COND.LBHR" VARCHAR
+	"TC.REBOIL.COND.LBHR" VARCHAR,
+	Primary Key ("Date")
 );
 
 
--- -- List of managers per department
+-- -- Merge Tables
 -- -- Example from Module 7.3.5
+drop table if exists project_data; 
 
--- SELECT  dm.dept_no,
---         d.dept_name,
---         dm.emp_no,
---         ce.last_name,
---         ce.first_name,
---         dm.from_date,
---         dm.to_date
--- INTO manager_info
--- FROM dept_manager AS dm
---     INNER JOIN departments AS d
---         ON (dm.dept_no = d.dept_no)
---     INNER JOIN current_emp AS ce
---         ON (dm.emp_no = ce.emp_no);
+SELECT  lab."Date",
+		lab."Index",
+     	lab."TA.OVH.RECYCLE.NC4.VOLPCT",
+     	rx."RX.TB.RECYCLE.CHARGE.BPD",
+	 	rx."RX.TB.RECYCLE.CHARGE.PCT",
+	 	rx."RX.NORTH.TC.CHARGE.BPD",
+	 	rx."RX.NORTH.TC.CHARGE.CV.PCT",
+	 	rx."RX.NORTH.FLUSH.PSIG",
+	 	rx."RX.NORTH.OUT.F",
+		rx."RX.SOUTH.TA.RECYCLE.CHARGE.BPD",	
+		rx."RX.SOUTH.TA.RECYCLE.CHARGE.PCT",
+	 	rx."RX.SOUTH.TC.CHARGE.BPD",
+	 	rx."RX.SOUTH.TC.CHARGE.CV.PCT",
+	 	rx."RX.SOUTH.FLUSH.PSIG",
+	 	rx."RX.SOUTH.OUT.F",
+	 	rx."RX.SOUTH.WATERRETURN.F",
+	 	rx."RX.SOUTH.WATERRETURN.PH",
+	 	rx."RX.OUT.DELTA.F",
+		ta."TA.Charge.BPD",
+		ta."TA.OH.PSIG",
+		ta."TA.Tray4.F",
+ 		ta."TA.OH.F",
+ 		ta."TA.RECV.PCT",
+  		ta."TA.RECV.PSIG",
+ 		ta."TA.RECYCLE.TO.CONTACT.BPD",
+  		ta."TA.RECYCLE.TO.CONTACT.F",	
+ 		ta."TA.TRAY39.F",	
+		ta."TA.TRAY45.F",	
+  		ta."TA.DP.PSIG",	
+ 		ta."TA.BTM.PSIG",	
+ 		ta."TA.BTM.LEVEL.PCT",	
+  		ta."TA.BTM.REBOIL.OUT.F",	
+ 		ta."TA.TOP.REBOIL.OUT.F",
+		tb."TB.CHARGE.BPD",
+		tb."TB.CHARGE.PREHEAT.COND.LBHR",	
+ 		tb."TB.CHARGE.F",	
+ 		tb."TB.OVHD.F",	
+ 		tb."TB.OVHD.PSIG",	
+ 		tb."TB.OVHD.REVEIVER.PSIG",	
+ 		tb."TB.OVHD.REVEIVER.F",	
+ 		tb."TB.OVHD.REVEIVER.LVL.PCT",	
+ 		tb."TB.BTM.PSIG",	
+ 		tb."TB.BTM.LVL.PCT",	
+ 		tb."TB.DP.PSIG",	
+ 		tb."TB.BTM.F",	
+ 		tb."TB.REBOIL.OUT.F",		
+ 		tc."TC.TRAY7.F",
+ 		tc."TC.TRAY40.F",
+ 		tc."TC.CHARGE.F",
+ 		tc."TC.OVHD.PSIG",
+ 		tc."TC.OVHD.RECVR.F",	
+ 		tc."TC.TRAY24.F",	
+ 		tc."TC.DP.PSIG",
+ 		tc."TC.BTM.PSIG",	
+ 		tc."TC.REBOIL.OUT.F",	
+ 		tc."TC.REBOIL.COND.LBHR"
+INTO project_data
+FROM labdata AS lab
+     INNER JOIN rxdata AS rx
+     ON (lab."Date" = rx."Date")
+ 	 INNER JOIN tadata AS ta
+     ON (lab."Date" = ta."Date")
+ 	 INNER JOIN tbdata AS tb
+     ON (lab."Date" = tb."Date")
+	 INNER JOIN tcdata AS tc
+     ON (lab."Date" = tc."Date");
+
+
+
