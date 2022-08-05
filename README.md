@@ -51,3 +51,12 @@ A provisional database that stands in for the final database, mimics the expecte
 ![2](https://github.com/Jarney903/Red-ProjectHub/blob/main/Graphics/SQL_mockup.png)
 
 ![image](https://user-images.githubusercontent.com/101227930/182073965-71b2e142-d287-4f3c-a100-f6a6159c67f9.png)
+
+
+# Segment 2 Descriptions
+## EDA Process
+The exploratory data analysis process began with checking the raw data for non-numerical values. We found that there were a few text strings: "Bad", "Bad Input", "Error", and "I/O Timeout". All values across the datasets were object types, and we wanted to convert those to float types. The text strings were preventing the whole dataset from being converted with minimal code. So, we replaced these text strings with NaN values, and dropped them. Then we did a full conversion, and generated summary statistics to get an idea of the spread of the data values. We noted multiple values that made no sense (like percent values that fell outside 0-100) and marked them for removal.
+
+We also went ahead and calculated some feature importances, feature coefficients, and correlations to understand the relationships of the features among each other and with different model types.
+
+During the EDA process we also saw that some datetimes were strange. Data was collected at 2 times every day: hour 6 and hour 13, and never at any minute besides 00. A significant chunk of the data was collected at arbitrary datetimes, and this was concerning. After some discussion, we realized that the dates that were strange fell under a period of turnaround for the plant, meaning that the plant itself was shut down and all the data collected in the period was invalid. We marked those datetimes for removal during the data cleaning process.
