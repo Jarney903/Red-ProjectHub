@@ -35,6 +35,7 @@ The team meets primarity on Tuesday's and Thursday's at 7:00 PM CST. The team al
 - Main Branch: Master README.md
 - etl_clean Branch: Master ETL Code for cleaning data, removing outliers, and finding feature importance
 - Model Testing Branch: Contains testing models for performing machine learning on the Reactor, Tower A, and Tower B data in reference to the Lab results data. 
+- flask_html: branch to hold work and notes on creating flask app/dashboard
 
 ## Provisional Machine Learning Model
 Twelve (12) provisional machine learning models have been created and published on the Model Testing Branch. These models currently are used as stand-ins for the final machine learning model and have helped the team determine the best methods for cleaning and determining feature importances on the raw datasets for Tower A, Tower B, and the Reactor. These provisional models have also helped guide the descision making in selecting the best model library to use for the final project deliverable. An outline of machine learning models is provided below:
