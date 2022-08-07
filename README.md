@@ -61,14 +61,14 @@ SK Learn's train_test_split function was used to split the model into training a
 
 - Residual Plot: The plot in Figure 2 show evenly distributed residuals, thus giving reason to believe the model performs well and is not over-fit. 
 ### Figure 2: Residual Plot
-![2](https://github.com/Jarney903/Red-ProjectHub/blob/main/Graphics/Residual_Plot.png)
+![2](https://github.com/Jarney903/Red-ProjectHub/blob/main/Graphics/Residual_Plot.jpg)
 
 - The total Mean Absolute Error is 1.92, meaning the average error is only 1.92 Vol%. 
 - The total Root Mean Squared Error is 3.51
 
 Finally, real time data, not included in the original dataset was taken from the past 3 weeks and ran in place of the X_test data as X_realtime data. This was to simulate real time data entering the model and graphed to simulate an operators view of actual and simulated N-Butane Vol% in TA's recycle line. The results are shown in Figure 3 below. 
 ### Figure 3: Real Time Model Performance
-![3](https://github.com/Jarney903/Red-ProjectHub/blob/main/Graphics/Real_Time.png)
+![3](https://github.com/Jarney903/Red-ProjectHub/blob/main/Graphics/Real_Time.jpg)
 
 In conclusion, there is certainly limitations to the model. While it does not predict the N-Butane Vol% exactly, it does seem to trend the general direction of the N-Butane Vol%, and generally predicts this figure within 2-5 Vol% points. In fact, the larger descrepancies between actual and predicted seem to occur when certain temperature and flow measurments were zero, which indicates either process upset or instument error. By only allowing the prediction to occur when all input data streams are within normal operating conditions, performance is likly to improve.  
 
