@@ -13,6 +13,14 @@ quickly or effectively. However, N-Butane must be removed in such a way that the
 
 The source data comes from individual asset data files pulled from the site process information historian in the form of CSV files. This data was pulled over a 9.5 year span and contains over 1.2 million individual data points before the ETL process was began. A block flow diagram of the process is included in Figure #1 below, along with individual sensor datapoints in their respective locations. 
 
+Resources:
+CSV files
+
+Software:
+* SQL
+* Jupyter Notebook
+* Quick Data Base Diagrams
+
 ### Figure 1: Process Block Flow
 ![1](https://github.com/Jarney903/Red-ProjectHub/blob/main/Graphics/Block_Flow.jpg)
 
@@ -27,6 +35,7 @@ The team meets primarity on Tuesday's and Thursday's at 7:00 PM CST. The team al
 - Main Branch: Master README.md
 - etl_clean Branch: Master ETL Code for cleaning data, removing outliers, and finding feature importance
 - Model Testing Branch: Contains testing models for performing machine learning on the Reactor, Tower A, and Tower B data in reference to the Lab results data. 
+- flask_html: branch to hold work and notes on creating flask app/dashboard
 
 ## Provisional Machine Learning Model
 Twelve (12) provisional machine learning models have been created and published on the Model Testing Branch. These models currently are used as stand-ins for the final machine learning model and have helped the team determine the best methods for cleaning and determining feature importances on the raw datasets for Tower A, Tower B, and the Reactor. These provisional models have also helped guide the descision making in selecting the best model library to use for the final project deliverable. An outline of machine learning models is provided below:
@@ -66,5 +75,16 @@ In conclusion, there is certainly limitations to the model. While it does not pr
 ## Provisional Database
 A provisional database that stands in for the final database, mimics the expected final database structure or schema, and is connected to the provisional models has been constructed using 4 of 5 raw datasets (Reactor Data isn't ready yet) as a series of CSV files. A provisional SQL Diagram has be created to help visualize the final SQL Database that will be used for this project in Figure #2 below:
 
+
 ### Figure 4: Provisional SQL Diagram
-![4](https://github.com/Jarney903/Red-ProjectHub/blob/main/Graphics/SQL_mockup.png)
+![2](https://github.com/Jarney903/Red-ProjectHub/blob/main/Graphics/SQL_mockup.png)
+
+
+# Segment 2 Descriptions
+## EDA Process
+The exploratory data analysis process began with checking the raw data for non-numerical values. We found that there were a few text strings: "Bad", "Bad Input", "Error", and "I/O Timeout". All values across the datasets were object types, and we wanted to convert those to float types. The text strings were preventing the whole dataset from being converted with minimal code. So, we replaced these text strings with NaN values, and dropped them. Then we did a full conversion, and generated summary statistics to get an idea of the spread of the data values. We noted multiple values that made no sense (like percent values that fell outside 0-100) and marked them for removal.
+
+We also went ahead and calculated some feature importances, feature coefficients, and correlations to understand the relationships of the features among each other and with different model types.
+
+During the EDA process we also saw that some datetimes were strange. Data was collected at 2 times every day: hour 6 and hour 13, and never at any minute besides 00. A significant chunk of the data was collected at arbitrary datetimes, and this was concerning. After some discussion, we realized that the dates that were strange fell under a period of turnaround for the plant, meaning that the plant itself was shut down and all the data collected in the period was invalid. We marked those datetimes for removal during the data cleaning process.
+
