@@ -48,8 +48,8 @@ Twelve (12) provisional machine learning models were created and published on th
 ### Final Database
 An extensive ETL Phase for cleaning data, removing outliers, and finding feature importance was completed. The 5 cleaned datasets were then uploaded to PostgreSQL as 5 seperate table, with primary keys of Date, as each date represents a unique data field, shared by all datasets. The 5 tables were then merged using the SQL inner-join command as one table named project_data. This project_data table was used as the final database source for the project analysis and the diagram can be seen in Figure #2 below:
 
-#### Figure 2: Provisional SQL Diagram
-![2](https://github.com/Jarney903/Red-ProjectHub/blob/main/Graphics/Updated_EDR.png)
+#### Figure 2: SQL ERD Diagram
+![2](https://github.com/Jarney903/Red-ProjectHub/blob/main/Graphics/Updated_ERD.png)
 
 ### Model Analysis
 The merged project_data table was exorted to a Pandas DataFrame using pd.sql_read. Once the project_data table was available as a DataFrame, 5 Machine Learning models (Linear Regression, Logistic Regression, Random Forrest, and Support Vector Machine) were set-up to analyze the data, with the hope to either predict the N-Butane vol% in the TA Recycle stream, or predict if the N-Butane vol% was over the binary qualifier (greater that 13%). Overall acuracy and the Mean Absolute Error perfomance metric absolute_value(predicted - actual) was then used to determine the best model. Results are described in the Explanation of Model Choice section below. 
