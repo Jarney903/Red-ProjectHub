@@ -78,7 +78,7 @@ def main():
 
     cursor.close()
     conn.close()
-    return render_template("index.html", project_results=project_results, 
+    return render_template("index_draft.html", project_results=project_results, 
     project_metrics=project_metrics, rx_results=rx_results, rx_metrics=rx_metrics, 
     towers_results=towers_results, towers_metrics=towers_metrics,
     ta_results=ta_results, ta_metrics=ta_metrics, tb_results=tb_results, tb_metrics=tb_metrics,
