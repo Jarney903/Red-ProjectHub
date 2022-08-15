@@ -20,6 +20,8 @@ def main():
     cursor = conn.cursor()
 
     # queries    
+
+    query = 'SELECT * FROM proj_results LIMIT 15'
     query1 = 'SELECT * FROM proj_results'
     query2 = 'SELECT * FROM proj_metrics'
 
@@ -37,6 +39,9 @@ def main():
 
     query11 = 'SELECT * FROM lab_tc_results'
     query12 = 'SELECT * FROM lab_tc_metrics'
+
+    cursor.execute(query)
+    pj_results_15 = cursor.fetchall()
 
     cursor.execute(query1)
     project_results = cursor.fetchall()
@@ -78,7 +83,7 @@ def main():
 
     cursor.close()
     conn.close()
-    return render_template("index.html", project_results=project_results, 
+    return render_template("index.html", pj_results_15= pj_results_15, project_results=project_results, 
     project_metrics=project_metrics, rx_results=rx_results, rx_metrics=rx_metrics, 
     towers_results=towers_results, towers_metrics=towers_metrics,
     ta_results=ta_results, ta_metrics=ta_metrics, tb_results=tb_results, tb_metrics=tb_metrics,

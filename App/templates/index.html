@@ -200,14 +200,6 @@
                     <a href="https://github.com" class="btn"><i class="fab fa-github"></i> Code</a>
                 </div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-icon">
-                    <i class="fas fa-star fa-align"></i>
-                </div>
-                <div class="timeline-content">
-                    <h2>Final Results!</h2>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -216,21 +208,49 @@
     <!--Results Title-->
     <section class="container">
         <div class="header-container">
-            <h1 class ='title'>N-Butane Prediction Model Results</h1>
+            <h1 class ='title'   style='background-color:#328eff;  padding:30px;  border:1px solid #328eff; color: white;' >N-Butane Prediction Model Results</h1>
+                <h4>Linear Regression</h4>
+            <h3 class="education-item">Snapshot of Predictions versus Actual values</h3>
             <table style = "width:50%">
                 <tr>
                   <th>Predictions</th>
                   <th>Actual</th>
                 </tr>
-                {% for row in project_results %}
+                {% for row in pj_results_15 %}
                 <tr>
                     <td>{{row[0]}}</td>
                     <td>{{row[1]}}</td>
                 </tr>
                 {% endfor %}
               </table> 
+            <h3 class="space-item">Metrics of Project Data</h3>
+            <table style = "width:50%; padding-bottom: 30px;">
+                <tr>
+                  <th>Data</th>
+                  <th>R2_Score</th>
+                  <th>Mean_Error</th>
+                  <th>Mean_Absolute_Error</th>
+                  <th>Estimated_Variance_Score</th>
+                </tr>
+                {% for row in project_metrics %}
+                <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                </tr>
+                {% endfor %}
+              </table> 
     </section>
+    
 
+    <section>
+        <div class="header-container">
+            <h2 class='title' style="padding: 40px">Summary of Results</h2>
+            <p style="font-size: 20px">summary of results here</p>
+        </div>
+    </section>
  
 
 

@@ -92,6 +92,10 @@ footer a {
   padding: 20px 0;
 }
 
+.space-item {
+  padding: 75px 0;
+}
+
 .container-color, .container-dark {
   padding: 100px 0;
   color: #fff;
@@ -341,3 +345,8 @@ footer a {
   background: #f1f3f5;
 }
 
+.title-box {
+  background-color: #328eff ; 
+  padding: 10px; 
+  border: 1px solid #328eff;
+}
