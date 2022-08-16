@@ -150,7 +150,7 @@
 
                 </div>
                 <div class="timeline-content">
-                    <h2>ETL and EDA</h2>
+                    <h2 style="margin-bottom: 0.5em">ETL and EDA</h2>
                     <p>
                         The exploratory data analysis process began with checking the raw data for non-numerical values. We found that there were a few text strings: "Bad", "Bad Input", "Error", and "I/O Timeout". All values across the datasets were object types, and we wanted to convert those to float types. The text strings were preventing the whole dataset from being converted with minimal code. So, we replaced these text strings with NaN values, and dropped them. Then we did a full conversion, and generated summary statistics to get an idea of the spread of the data values. We noted multiple values that made no sense (like percent values that fell outside 0-100) and marked them for removal.
                     </p>
@@ -170,7 +170,7 @@
 
                 </div>
                 <div class="timeline-content right">
-                    <h2>PostgreSQL Database</h2>
+                    <h2 style="margin-bottom: 0.5em">PostgreSQL Database</h2>
                     <p>
                         An extensive ETL Phase for cleaning data, removing outliers, and finding feature importance was completed. The 5 cleaned datasets were then uploaded to PostgreSQL as 5 seperate table, with primary keys of Date, as each date represents a unique data field, shared by all datasets. The 5 tables were then merged using the SQL inner-join command as one table named project_data. T
                     </p>
@@ -183,7 +183,7 @@
                     <i class="fas fa-star fa-align"></i>
                 </div>
                 <div class="timeline-content">
-                    <h2>Machine Learning</h2>
+                    <h2 style="margin-bottom: 0.5em">Machine Learning</h2>
                     <p>
                         Twelve (12) provisional machine learning models were created and published on the Model Testing Branch. These models were used as stand-ins for the final machine learning model and have helped the team determine the best methods for cleaning and determining feature importances. These provisional models have also helped guide the descision making in selecting the best model library to use for the final project deliverable. 
                     </p>
@@ -201,7 +201,7 @@
 
                 </div>
                 <div class="timeline-content right" :after>
-                    <h2>Dashboard</h2>
+                    <h2 style="margin-bottom: 0.5em">Dashboard</h2>
                     <p>
                         To display the results of our analysis, we chose to build a Flask app, using Python and connecting to the PostgreSQL Database we made to hold both our raw data, clean data, and finally our Linear Regression results.
                     </p>
@@ -256,12 +256,132 @@
     <section>
         <div class="header-container">
             <h2 class='title' style="padding: 40px">Summary of Results</h2>
-            <p style="font-size: 20px">summary of results here</p>
+            <p style="font-size: 20px; width: 1000px; padding: 20px;">The final results of the linear regression run on the combined project data (Towers A, B, C and Reactors) gave us an R2_Score of 0.435 and a Mean Error of 2.594 (Mean Absolute Error and Estimated Variance Score are also given for those who are interested, however the R2 Score and Mean Error are our primary metrics). 
+                The R2 Score tells us the amount of variation in the output variable from the input variables. For us, this means that the output variable (N-Butane percentage level) and our input data from the towers and reactors, are correlated at 43.5% through our Linear Regression Model. 
+                In terms of the predictions, our predictive values tend to be within 2.594 percentage points of the actual value. However, due to the way that the data was merged, many data points were lost. 
+                I recommend a rework of the ETL and cleaning process to preserve as many mergable data points as possible for further model testing. 
+                Our combined dataset had just under 1000 data points, making our machine learning analysis much weaker than it would have been. 
+                In order to put this into perspective, we also ran the same model on a more limited merged dataset that focused on Tower A and the output only.</p>
+            <table style = "width:50%;">
+                <tr>
+                    <th>Data</th>
+                    <th>R2_Score</th>
+                    <th>Mean_Error</th>
+                    <th>Mean_Absolute_Error</th>
+                    <th>Estimated_Variance_Score</th>
+                </tr>
+                {% for row in ta_metrics %}
+                <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <p style="font-size: 20px; width: 1000px; padding: 20px;">
+                In comparison, the isolated Tower A and Lab linear regression ran with 2537 data points, and shows a R2 Score of 0.596 and a Mean Error of 2.724. 
+                This tells us that the correlation between Tower A data and the N-Butane Levels are about 60% correlated. 
+                However, the predictive values are still between 2 and 3 percentage points off from the actual values, showing that although our correlations are stronger, the Mean Error is more or less the same.
+                Below is a table of the metrics of different combined datasets.
+                Project Data holds all towers and reactors as inputs. Lab_rx holds only the reactor data as inputs. Towers_data holds all the towers' data as inputs. Finally, each tower is examined in isolation. The Data points of these datasets are also given to show efficacy of the model.
+            </p>
+            <h4 style="padding: 20px;">Metrics For All Datasets</h4>
+            <table style = "width:50%;">
+                <tr>
+                    <th>Data</th>
+                    <th>R2_Score</th>
+                    <th>Mean_Error</th>
+                    <th>Mean_Absolute_Error</th>
+                    <th>Estimated_Variance_Score</th>
+                    <th>Data Points/Rows</th>
+                </tr>
+                {% for row in project_metrics %}
+                <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                    <td>992</td>
+                </tr>
+                {% endfor %}
+                {% for row in rx_metrics %}
+                <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                    <td>3953</td>
+                </tr>
+                {% endfor %}
+                {% for row in towers_metrics %}
+                <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                    <td>1022</td>
+                </tr>
+                {% endfor %}
+                {% for row in ta_metrics %}
+                <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                    <td>2537</td>
+                </tr>
+                {% endfor %}
+                {% for row in tb_metrics %}
+                <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                    <td>1412</td>
+                </tr>
+                {% endfor %}
+                {% for row in tc_metrics %}
+                <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                    <td>5246</td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
     </section>
- 
+    
+    <section>
+        <div class="header-container">
 
-
+        </div>
+    </section>
+    
+    <section class="container">
+        <div class="header-container">
+            <h1 class ='title'   style='background-color:#328eff;  padding:30px;  border:1px solid #328eff; color: white; margin-top: 2.5em;' >Conclusions</h1>
+            <p style="font-size: 20px; width: 1000px; padding: 20px;">
+                The purpose of this analysis was to begin the production of a model that could accurately (within 2 percentage points at most) predict levels of N-Butane being recycled back into the alkylation unit based on the data taken from the reactors and the processing towers.
+                We achieved, with our beginner skills, a Mean Error between 2 and 3 percentage points, which is above the acceptable accuracy we wanted. 
+                That being said, the model itself may need some more skilled tweaking, and the ETL process should be refined. Once those two avenues have been exhausted, I think it would be prudent to rerun the model on the newly cleaned and organized datasets.
+                In terms of testing other types of models, we believe that Neural Networks for Regression may be an option. Classification models are unlikely to provide useful results, since the outputs are not binary. 
+                While the outputs could be encoded like a binary system, the decision making for that is beyond this teams understanding, and would require more knowledge of the alkylation units and processes.
+                It is also possible that there are factors beyond our input features that have an effect on the levels of N-Butane being recycled/built up in the alkylation units. 
+                Another strategy we could implement in the future to improve the Mean Error score of our model could be to project reasonable data in place of Null or Bad data, reducing the number of data rows we have to scrap.
+                Ultimately, while we did not meet the standard of accuracy for our interests, we do believe we have made a solid start into developing a model appropriate to addressing the N-Butane prediction problem.
+            </p>
+        </div>
+    </section>
 
     <!-- EDUCATION -->
     <section class="container education-container">
@@ -300,7 +420,6 @@
             <hr/>
             <h2>John Brenton Arney</h2>
             <h3 class="intro subtitle">
-                <a href="https://twitter.com" class="social-icon"><i class="fab fa-twitter"></i></a>
                 <a href="https://linkedin.com/in" class="social-icon"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/Jarney903" class="social-icon"><i class="fab fa-github"></i></a>
                 <a href="mailto:<YOUREMAIL>" class="social-icon"><i class="fas fa-envelope"></i></a>
@@ -308,8 +427,7 @@
             <hr/>
             <h2>Eva Hawkins</h2>
             <h3 class="intro subtitle">
-                <a href="https://twitter.com" class="social-icon"><i class="fab fa-twitter"></i></a>
-                <a href="https://linkedin.com/in" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/eva-hawkins-a9b333147/" class="social-icon"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/ehawkins0631" class="social-icon"><i class="fab fa-github"></i></a>
                 <a href="mailto:<YOUREMAIL>" class="social-icon"><i class="fas fa-envelope"></i></a>
             </h3>
