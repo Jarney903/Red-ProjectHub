@@ -1,4 +1,3 @@
-Presentation Link: https://github.com/Jarney903/Red-ProjectHub/blob/main/Presentation/Presentation_Final.pptx
 
 Google slide Link: https://docs.google.com/presentation/d/1nDcayN-oJLn1ioJrziO4ryAtTiBlHXBM/edit#slide=id.p1
 
