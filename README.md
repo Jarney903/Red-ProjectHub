@@ -1,4 +1,5 @@
 Presentation Link: https://github.com/Jarney903/Red-ProjectHub/blob/main/Presentation/Presentation_Final.pptx
+Google slide Link: https://docs.google.com/presentation/d/1nDcayN-oJLn1ioJrziO4ryAtTiBlHXBM/edit#slide=id.p1
 
 
 # Prediction of Normal Butane Volume Percentage in Tower A Recycle to Reactor
@@ -30,9 +31,6 @@ By allowing realtime monitoring and thus, optimization of N-Butane levels, the f
 * Octane Optimization: N-Butane levels over 15% coorelate to product values roughly 1 octane number lower than that of less than 15%: $700K YTD forcast
 * Maintenance Costs due to polymerized olefin contamination: $500K (conservative estimation)
 * Total = $1.2M annually
-
-## Presentation Link
-Presentation Link: https://github.com/Jarney903/Red-ProjectHub/blob/main/Presentation/Presentation_Final.pptx
 
 
 ## Project Summary: Exploration Phase
