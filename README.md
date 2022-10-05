@@ -21,8 +21,10 @@ quickly or effectively. However, N-Butane must be removed in such a way that the
 ### Description of Data Source
 The source data comes from 5 individual asset data files pulled from the site process information historian in the form of CSV files. This data was pulled over a 9.5 year span and contains over 1.2 million individual data points before the ETL process was began. A block flow diagram of the process is included in Figure #1 below, along with individual sensor datapoints in their respective locations. 
 
+
 #### Figure 1: Process Block Flow
 ![1](https://github.com/Jarney903/Red-ProjectHub/blob/main/Graphics/Block_Flow.jpg)
+
 
 ### Desired Outcome and Opportunity Economics
 The project analysis output hopes to provide plant operations with a live view of the predicted Volume Percentage of N-Butane in the Tower A Recycle line.
