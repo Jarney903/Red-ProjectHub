@@ -42,6 +42,7 @@ The exploratory data analysis process began with checking the raw data for non-n
 
 During the EDA process we also saw that some datetimes were strange. Data was collected at 2 times every day: hour 6 and hour 13, and never at any minute besides 00. A significant chunk of the data was collected at arbitrary datetimes, and this was concerning. After some discussion, we realized that the dates that were strange fell under a period of turnaround for the plant, meaning that the plant itself was shut down and all the data collected in the period was invalid. We marked those datetimes for removal during the data cleaning process.
 
+
 ### Feature Importances
 We also went ahead and calculated some feature importances, feature coefficients, and correlations to understand the relationships of the features among each other and with different model types. The feature importance functions such as model.coef_ and model.feature_importances_, along with naitive process knowlege of team group members, allowed for a systematic ranking of features. Though 54 of the original 56 features were left in the model, the feature importance ranking is a valuable output and will be used to further tune the model outside of the class project end date.  
 
